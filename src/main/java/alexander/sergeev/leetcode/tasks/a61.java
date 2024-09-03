@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 // 61. Rotate List
 public class a61 {

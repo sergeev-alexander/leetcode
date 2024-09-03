@@ -1,6 +1,4 @@
-package alexander.sergeev;
-
-import java.util.Arrays;
+package alexander.sergeev.leetcode.tasks;
 
 // 41. First Missing Positive
 public class a41 {

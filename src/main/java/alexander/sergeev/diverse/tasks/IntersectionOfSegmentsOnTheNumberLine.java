@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.diverse.tasks;
 
 public class IntersectionOfSegmentsOnTheNumberLine {
 

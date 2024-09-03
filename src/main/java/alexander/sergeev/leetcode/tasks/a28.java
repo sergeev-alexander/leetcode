@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 // 28. Find the Index of the First Occurrence in a String
 public class a28 {

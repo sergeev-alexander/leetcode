@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

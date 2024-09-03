@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.diverse.tasks;
 
 import java.util.Collections;
 import java.util.Comparator;

@@ -1,6 +1,4 @@
-package alexander.sergeev;
-
-import java.util.Arrays;
+package alexander.sergeev.leetcode.tasks;
 
 // 35. Search Insert Position
 public class a35 {

@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 // 74. Search a 2D Matrix
 public class a74 {

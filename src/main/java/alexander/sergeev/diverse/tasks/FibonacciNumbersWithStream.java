@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.diverse.tasks;
 
 import java.util.stream.Stream;
 

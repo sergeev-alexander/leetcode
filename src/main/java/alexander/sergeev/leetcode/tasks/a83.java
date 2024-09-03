@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 // 83. Remove Duplicates from Sorted List
 public class a83 {
