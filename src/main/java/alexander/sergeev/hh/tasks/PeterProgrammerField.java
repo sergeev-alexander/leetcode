@@ -3,7 +3,7 @@ package alexander.sergeev.hh.tasks;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
+public class PeterProgrammerField {
     /*
     После очередного завершённого проекта программист Пётр решил переехать в деревню и заняться сельским хозяйством.
     Мелочиться он не стал, поэтому помимо домика в деревне сразу приобрёл несколько идущих подряд параллельных
