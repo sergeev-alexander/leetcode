@@ -149,32 +149,32 @@ class Maze {
         distances[point.x][point.y] = distance;
 
         // Stores the smallest path
-        String path = "";
+        StringBuilder path = new StringBuilder();
 
         // Iterate until start is reached
         while (x != start.x || y != start.y) {
 
             // Append D
             if (x > 0 && distances[x - 1][y] == distance - 1) {
-                path += 'D';
+                path.append('D');
                 x--;
             }
 
             // Append U
             if (x < ROW - 1 && distances[x + 1][y] == distance - 1) {
-                path += 'U';
+                path.append('U');
                 x++;
             }
 
             // Append R
             if (y > 0 && distances[x][y - 1] == distance - 1) {
-                path += 'R';
+                path.append('R');
                 y--;
             }
 
             // Append L
             if (y < COLUMN - 1 && distances[x][y + 1] == distance - 1) {
-                path += 'L';
+                path.append('L');
                 y++;
             }
             distance--;
