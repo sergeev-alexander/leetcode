@@ -19,6 +19,14 @@ public class a125 {
     }
 
     public static boolean isPalindrome(String s) {
+        String str = (s.replaceAll("[\\W\\p{Punct}]", "")).toLowerCase();
+        for (int i = 0, j = str.length() - 1; i <= j; i++, j--) {
+            if (str.charAt(i) != str.charAt(j)) return false;
+        }
+        return true;
+    }
+
+    public static boolean isPalindromeSLOW(String s) {
         String a = (s.replaceAll("[\\W\\p{Punct}]", ""));
         return a.equalsIgnoreCase(new StringBuilder(a).reverse().toString());
     }
