@@ -14,9 +14,24 @@ public class a125 {
 
         String s = "A man, a plan, a canal: Panama";
 
-        System.out.println(isPalindromeSLOW_WITH_FOR(s));
+        System.out.println(isPalindrome(s));
+
 
     }
+
+    public static boolean isPalindrome(String s) {
+        for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+            while (i < j && !Character.isLetterOrDigit(s.charAt(i))) {
+                i++;
+            }
+            while (i < j && !Character.isLetterOrDigit(s.charAt(j))) {
+                j--;
+            }
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) return false;
+        }
+        return true;
+    }
+
 
     public static boolean isPalindromeSLOW_WITH_FOR(String s) {
         String str = (s.replaceAll("[\\W\\p{Punct}]", "")).toLowerCase();
