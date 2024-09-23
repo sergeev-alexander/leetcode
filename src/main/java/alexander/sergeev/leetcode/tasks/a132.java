@@ -15,12 +15,21 @@ public class a132 {
 
     public static void main(String[] args) {
 
-        int[] nums = {1, 2, 1, 2, 7};
+        int[] nums = {1, 2, 1, 1, 2, 2, 7};
 
         System.out.println(singleNumber(nums));
     }
 
+    // Could be faster...
     public static int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i += 3) {
+            if (nums[i] != nums[i + 1]) return nums[i];
+        }
+        return nums[nums.length - 1];
+    }
+
+    public static int singleNumber_SLOW(int[] nums) {
         return Arrays.stream(nums)
                 .boxed()
                 .collect(Collectors.toMap(Function.identity(), v -> 1, (oldValue, newValue) -> oldValue + 1))
