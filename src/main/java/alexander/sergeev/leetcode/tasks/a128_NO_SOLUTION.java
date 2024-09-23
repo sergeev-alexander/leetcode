@@ -1,6 +1,6 @@
 package alexander.sergeev.leetcode.tasks;
 
-public class a128 {
+public class a128_NO_SOLUTION {
 
     public static void main(String[] args) {
 
