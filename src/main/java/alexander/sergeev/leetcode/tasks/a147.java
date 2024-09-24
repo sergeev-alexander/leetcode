@@ -1,7 +1,5 @@
 package alexander.sergeev.leetcode.tasks;
 
-import alexander.sergeev.Temp;
-
 // 147. Insertion Sort List
 public class a147 {
 
