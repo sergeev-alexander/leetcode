@@ -1,5 +1,8 @@
 package alexander.sergeev.leetcode.tasks;
 
+import java.util.HashSet;
+import java.util.Set;
+
 // 160. Intersection of Two Linked Lists
 public class a160 {
 
@@ -22,6 +25,21 @@ public class a160 {
                                 headA.next.next)));
 
         System.out.println(getIntersectionNode(headA, headB));
+    }
+
+    public static ListNode getIntersectionNode_A_BIT_SLOWER(ListNode headA, ListNode headB) {
+        Set<ListNode> set = new HashSet<>();
+        while (headA != null) {
+            set.add(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (set.contains(headB)) {
+                return headB;
+            }
+            headB = headB.next;
+        }
+        return null;
     }
 
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
