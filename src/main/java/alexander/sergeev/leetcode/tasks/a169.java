@@ -82,6 +82,4 @@ public class a169 {
                 .map(Map.Entry::getKey)
                 .get();
     }
-
-
 }
