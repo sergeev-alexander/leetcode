@@ -1,9 +1,6 @@
 package alexander.sergeev.leetcode.tasks;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class a23 {
 
@@ -32,8 +29,28 @@ public class a23 {
 
     }
 
-    // A bit faster, but beats only 18%
     public static ListNode mergeKLists(ListNode[] lists) {
+        if (lists.length == 0) return null;
+        Queue<ListNode> minHeap = new PriorityQueue<>(Comparator.comparingInt(head -> head.val));
+        for (ListNode listNode : lists) {
+            if (listNode != null) minHeap.offer(listNode);
+        }
+        ListNode head = null, cur = null;
+        while (!minHeap.isEmpty()) {
+            ListNode curNode = minHeap.poll();
+            if (curNode.next != null) minHeap.offer(curNode.next);
+            if (head == null) {
+                head = new ListNode(curNode.val);
+                cur = head;
+            } else {
+                cur.next = new ListNode(curNode.val);
+                cur = cur.next;
+            }
+        }
+        return head;
+    }
+
+    public static ListNode mergeKLists_ALSO_SLOW(ListNode[] lists) {
         if (lists.length == 0) return null;
         List<ListNode> list = new ArrayList<>();
         for (int i = 0; i < lists.length; i++) {
