@@ -19,6 +19,15 @@ public class a24 {
     }
 
     public static ListNode swapPairs(ListNode head) {
+        if(head == null || head.next==null) return head;
+        ListNode second = head.next;
+        ListNode pr = swapPairs(second.next);
+        second.next = head;
+        head.next = pr;
+        return second;
+    }
+
+    public static ListNode swapPairs_ITERATIVE(ListNode head) {
         // The dummy node is used to simplify the edge case where the list might contain only one node.
         ListNode dummyNode = new ListNode(0, head);
         // 'previousNode' always points to the node before the pair that needs to be swapped.
