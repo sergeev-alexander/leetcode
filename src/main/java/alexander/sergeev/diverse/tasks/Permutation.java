@@ -1,6 +1,7 @@
 package alexander.sergeev.diverse.tasks;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Permutation {
 
@@ -10,9 +11,9 @@ public class Permutation {
      * @param s the input string
      * @return the list of permutations
      */
-    public static ArrayList<String> permutation(String s) {
+    public List<String> permutation(String s) {
         // The result
-        ArrayList<String> res = new ArrayList<>();
+        List<String> res = new ArrayList<>();
         // If input string length is 1, return {s}
         if (s.length() == 1) {
             res.add(s);
@@ -34,8 +35,8 @@ public class Permutation {
      * @param c    the last character
      * @return a merged new list, e.g. {"cab", "acb" ... }
      */
-    public static ArrayList<String> merge(ArrayList<String> list, String c) {
-        ArrayList<String> res = new ArrayList<>();
+    public List<String> merge(List<String> list, String c) {
+        List<String> res = new ArrayList<>();
         // Loop through all the string in the list
         for (String s : list) {
             // For each string, insert the last character to all possible positions
