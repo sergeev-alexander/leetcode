@@ -18,6 +18,7 @@ public class a1700 {
     This continues until none of the queue students want to take the top sandwich and are thus unable to eat.
     Return the number of students that are unable to eat.
      */
+
     public static void main(String[] args) {
 
         int[] students = {1,1,1,0,0,1};
