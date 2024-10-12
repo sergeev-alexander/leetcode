@@ -17,6 +17,16 @@ public class a3190 {
     }
 
     public static int minimumOperations(int[] nums) {
+        int count = 0;
+        for (int num : nums) {
+            if (num % 3 != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int minimumOperations_COULD_BE_FASTER(int[] nums) {
         return (int) Arrays.stream(nums)
                 .filter(i -> i % 3 != 0)
                 .count();
