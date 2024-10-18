@@ -36,14 +36,14 @@ public class Minesweeper {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] >= 9) {
-                    arr[i - 1][j - 1] += 1;
-                    arr[i - 1][j] += 1;
-                    arr[i - 1][j + 1] += 1;
-                    arr[i][j - 1] += 1;
-                    arr[i][j + 1] += 1;
-                    arr[i + 1][j - 1] += 1;
-                    arr[i + 1][j] += 1;
-                    arr[i + 1][j + 1] += 1;
+                    arr[i - 1][j - 1]++;
+                    arr[i - 1][j]++;
+                    arr[i - 1][j + 1]++;
+                    arr[i][j - 1]++;
+                    arr[i][j + 1]++;
+                    arr[i + 1][j - 1]++;
+                    arr[i + 1][j]++;
+                    arr[i + 1][j + 1]++;
                 }
             }
         }
