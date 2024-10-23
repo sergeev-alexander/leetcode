@@ -18,8 +18,30 @@ public class a2644 {
         System.out.println(maxDivScore(nums, divs));
     }
 
-    // BEATS 41%
+    // BEATS 67%
     public static int maxDivScore(int[] nums, int[] divisors) {
+        int divisor = divisors[0];
+        int max = 0;
+        for (int div : divisors) {
+            int count = 0;
+            for (int num : nums) {
+                if (num % div == 0) {
+                    count++;
+                }
+            }
+            if (count > max) {
+                max = count;
+                divisor = div;
+            }
+            if (count == max) {
+                divisor = Math.min(divisor, div);
+            }
+        }
+        return divisor;
+    }
+
+    // BEATS 41%
+    public static int maxDivScore4(int[] nums, int[] divisors) {
         Set<Integer> divSet = new HashSet<>();
         int divisor = divisors[0];
         int max = 0;
@@ -39,28 +61,6 @@ public class a2644 {
                 divisor = Math.min(divisor, div);
             }
             divSet.add(div);
-        }
-        return divisor;
-    }
-
-    // BEATS 25%
-    public static int maxDivScore4(int[] nums, int[] divisors) {
-        int divisor = divisors[0];
-        int max = 0;
-        for (int div : divisors) {
-            int count = 0;
-            for (int num : nums) {
-                if (num % div == 0) {
-                    count++;
-                }
-            }
-            if (count > max) {
-                max = count;
-                divisor = div;
-            }
-            if (count == max) {
-                divisor = Math.min(divisor, div);
-            }
         }
         return divisor;
     }
