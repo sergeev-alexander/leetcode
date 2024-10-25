@@ -19,8 +19,27 @@ public class a2586 {
         System.out.println(vowelStrings(words, left, right));
     }
 
-    // BEATS 23%
+    // BEATS 100%
     public static int vowelStrings(String[] words, int left, int right) {
+        int count = 0;
+        for (int i = left; i <= right; i++) {
+            if (isVowel(words[i].charAt(0)) && isVowel(words[i].charAt(words[i].length() - 1))) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static boolean isVowel(char ch) {
+        return ch == 'a'
+                || ch == 'e'
+                || ch == 'i'
+                || ch == 'o'
+                || ch == 'u';
+    }
+
+    // BEATS 23%
+    public static int vowelStrings1(String[] words, int left, int right) {
         Set<Character> set = Set.of('a', 'e', 'i', 'o', 'u');
         int count = 0;
         for (int i = left; i <= right; i++) {
