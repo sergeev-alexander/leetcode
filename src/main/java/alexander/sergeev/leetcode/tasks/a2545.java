@@ -25,8 +25,27 @@ public class a2545 {
             System.out.println(Arrays.toString(a));
     }
 
-    // BEATS 38%
+    // BEATS 93%
     public static int[][] sortTheStudents(int[][] score, int k) {
+        int max = 0;
+        int pos= 0;
+        for (int i = 0; i < score.length; i++) {
+            for (int j = i; j < score.length; j++) {
+                if (score[j][k] > max) {
+                    max = score[j][k];
+                    pos = j;
+                }
+            }
+            int[] temp = score[i];
+            score[i] = score[pos];
+            score[pos] = temp;
+            max = 0;
+        }
+        return score;
+    }
+
+    // BEATS 38%
+    public static int[][] sortTheStudents1(int[][] score, int k) {
         int[] arr = new int[score.length];
         int pos = 0;
         for (int[] studs : score) arr[pos++] = studs[k];
