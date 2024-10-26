@@ -1,6 +1,9 @@
 package alexander.sergeev.leetcode.tasks;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 // 2553. Separate the Digits in an Array
 public class a2553 {
@@ -37,7 +40,7 @@ public class a2553 {
     }
 
     // BEATS 23%
-    public static int[] separateDigits2(int[] nums) {
+    public static int[] separateDigits1(int[] nums) {
         int[] result = new int[400_001];
         int pos = 0;
         int count = 0;
