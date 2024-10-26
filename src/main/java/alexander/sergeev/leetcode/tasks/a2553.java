@@ -13,13 +13,13 @@ public class a2553 {
      */
 
     public static void main(String[] args) {
-        int[] arr = {132, 25, 83, 77};
+        int[] arr = {134, 25, 83, 77};
         System.out.println(Arrays.toString(separateDigits(arr)));
     }
 
     // BEATS 88%
     public static int[] separateDigits(int[] nums) {
-        int[] result = new int[100_000_000];
+        int[] result = new int[400_001];
         int pos = 0;
         int count = 0;
         for (int i : nums) {
@@ -32,6 +32,22 @@ public class a2553 {
             }
             result[pos++] = i % 10;
             count++;
+        }
+        return Arrays.copyOf(result, count);
+    }
+
+    // BEATS 23%
+    public static int[] separateDigits2(int[] nums) {
+        int[] result = new int[400_001];
+        int pos = 0;
+        int count = 0;
+        for (int i : nums) {
+            String s = String.valueOf(i);
+            int length = 0;
+            while (length < s.length()) {
+                result[pos++] = Integer.parseInt(String.valueOf(s.charAt(length++)));
+                count++;
+            }
         }
         return Arrays.copyOf(result, count);
     }
