@@ -16,8 +16,22 @@ public class a2535 {
         System.out.println(differenceOfSum(nums));
     }
 
-    // BEATS 6%
+    // BEATS 99%
     public static int differenceOfSum(int[] nums) {
+        int elSum = 0;
+        int digSum = 0;
+        for (int num : nums) {
+            elSum += num;
+            while (num > 0) {
+                digSum += num % 10;
+                num /= 10;
+            }
+        }
+        return Math.abs(elSum - digSum);
+    }
+
+    // BEATS 6%
+    public static int differenceOfSum1(int[] nums) {
         int elSum = 0;
         int digSum = 0;
         for (int num : nums) {
