@@ -18,8 +18,21 @@ public class a2540 {
         System.out.println(getCommon(num1, num2));
     }
 
-    // BEATS 87%
+    // BEATS 100%
     public static int getCommon(int[] nums1, int[] nums2) {
+        if (nums1[nums1.length - 1] < nums2[0] || nums2[nums2.length - 1] < nums1[0]) return -1;
+        int point1 = 0;
+        int point2 = 0;
+        while (point1 < nums1.length && point2 < nums2.length) {
+            if (nums1[point1] == nums2[point2]) return nums1[point1];
+            else if (nums1[point1] > nums2[point2]) point2++;
+            else point1++;
+        }
+        return -1;
+    }
+
+    // BEATS 87%
+    public static int getCommon2(int[] nums1, int[] nums2) {
         int point1 = 0;
         int point2 = 0;
         while (point1 < nums1.length && point2 < nums2.length) {
