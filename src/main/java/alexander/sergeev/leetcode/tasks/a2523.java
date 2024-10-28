@@ -1,7 +1,6 @@
 package alexander.sergeev.leetcode.tasks;
 
 import java.util.Arrays;
-import java.util.TreeMap;
 
 // 2523. Closest Prime Numbers in Range
 public class a2523 {
@@ -19,28 +18,27 @@ public class a2523 {
     public static void main(String[] args) {
         int a = 10;
         int b = 19;
-        System.out.println(Arrays.toString(closestPrimes(a,b)));
+        System.out.println(Arrays.toString(closestPrimes(a, b)));
     }
-
 
     // BEATS 35%
     public static int[] closestPrimes(int left, int right) {
         int minDiff = 1_000_000;
-        int prevPrime = -1;
-        TreeMap<Integer, int[]> map = new TreeMap<>();
-        for (int i = left; i <= right; i++) {
+        int nextPrime = -1;
+        int[] result = new int[]{-1, -1};
+        for (int i = right; i >= left; i--) {
             if (isPrime(i)) {
-                if (prevPrime != -1) {
-                    minDiff = Math.min(minDiff, i - prevPrime);
-                    map.merge(minDiff, new int[]{prevPrime, i}, (o, n) -> {
-                        if (o[0] < n[0]) return o;
-                        else return n;
-                    });
+                if (nextPrime != -1) {
+                    if (minDiff >= nextPrime - i) {
+                        minDiff = nextPrime - i;
+                        result[0] = i;
+                        result[1] = nextPrime;
+                    }
                 }
-                prevPrime = i;
+                nextPrime = i;
             }
         }
-        return map.isEmpty() ? new int[]{-1,-1} : map.firstEntry().getValue();
+        return result;
     }
 
     private static boolean isPrime(int num) {
