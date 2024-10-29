@@ -1,5 +1,8 @@
 package alexander.sergeev.leetcode.tasks;
 
+import java.util.HashMap;
+import java.util.Map;
+
 // 2475. Number of Unequal Triplets in Array
 public class a2475 {
 
@@ -17,8 +20,23 @@ public class a2475 {
         System.out.println(unequalTriplets(arr));
     }
 
-    // BEATS 64%
+    // BEATS 98%
     public static int unequalTriplets(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            map.merge(num, 1, (o, n) -> o + 1);
+        }
+        int res = 0, left = 0, right = nums.length;
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            right -= entry.getValue();
+            res += right * entry.getValue() * left;
+            left += entry.getValue();
+        }
+        return res;
+    }
+
+    // BEATS 64%
+    public static int unequalTriplets1(int[] nums) {
         int count = 0;
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
