@@ -41,7 +41,6 @@ public class a2488 {
             }
             arr[count + length]++;
         }
-        System.out.println(Arrays.toString(arr));
         count = 0;
         for (int i = pos - 1; i >= 0; i--) {
             count += nums[i] > k ? 1 : -1;
