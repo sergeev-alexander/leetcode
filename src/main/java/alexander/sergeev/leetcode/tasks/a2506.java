@@ -1,7 +1,6 @@
 package alexander.sergeev.leetcode.tasks;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 // 2506. Count Pairs Of Similar Strings
@@ -17,12 +16,32 @@ public class a2506 {
      */
 
     public static void main(String[] args) {
-        String[] arr = {"aabb","ab","ba"};
+        String[] arr = {"aba","aabb","abcd","bac","aabc"};
         System.out.println(similarPairs(arr));
     }
 
     // BEATS 37%
     public static  int similarPairs(String[] words) {
+        Map<Integer, Set<Character>> map = new HashMap<>();
+        for (int i = 0; i < words.length; i++) {
+            Set<Character> set = new TreeSet<>();
+            for (int j = 0; j < words[i].length(); j++) {
+                set.add(words[i].charAt(j));
+            }
+            map.put(i, set);
+        }
+        int count = 0;
+        for (int i = 0; i < map.size() - 1; i++) {
+            for (int j = i + 1; j < map.size(); j++) {
+                if (map.get(i).equals(map.get(j))) count++;
+            }
+        }
+        return count;
+    }
+
+
+    // BEATS 37%
+    public static  int similarPairs1(String[] words) {
         List<String> list= Arrays.stream(words)
                 .map(w -> Arrays.stream(w.split(""))
                         .distinct()
