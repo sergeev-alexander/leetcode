@@ -32,8 +32,7 @@ public class a2472 {
         MARK:
         for (int i = 0; i < s.length() - k + 1; i++) {
             for (int j = i + k; j <= s.length(); j++) {
-                String word = s.substring(i, j);
-                if (isPalindrome(word)) {
+                if (isPalindrome(s.substring(i, j))) {
                     list.add(new Segment(i, j - 1));
                     continue MARK;
                 }
