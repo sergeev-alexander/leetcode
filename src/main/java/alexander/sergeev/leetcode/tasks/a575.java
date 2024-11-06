@@ -21,14 +21,27 @@ public class a575 {
         System.out.println(distributeCandies(arr));
     }
 
+    // BEATS 97%
     public static int distributeCandies(int[] candyType) {
+        boolean[] arr = new boolean[200_001];
+        int count = 0;
+        for (int num : candyType) {
+            if (count >= candyType.length / 2) return count;
+            if (!arr[num + 100_000]) count++;
+            arr[num + 100_000] = true;
+        }
+        return count;
+    }
+
+    // BEATS 93%
+    public static int distributeCandies1(int[] candyType) {
         Set<Integer> set = new HashSet<>();
         int count = 0;
-        for (int i : candyType) {
+        for (int num : candyType) {
             if (count >= candyType.length / 2) {
                 break;
             }
-            if (set.add(i)) count++;
+            if (set.add(num)) count++;
         }
         return count;
     }
