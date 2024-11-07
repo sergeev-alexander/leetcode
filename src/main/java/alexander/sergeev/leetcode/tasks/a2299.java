@@ -20,8 +20,33 @@ public class a2299 {
         System.out.println(strongPasswordCheckerII(s));
     }
 
-    // BEATS 89%
+    // BEATS 100%
     public static boolean strongPasswordCheckerII(String password) {
+        if (password.length() < 8) return false;
+        String spetial = "!@#$%^&*()-+";
+        boolean hasDigit = false;
+        boolean hasSpetial = false;
+        boolean hasLowerCase = false;
+        boolean hasUpperCase = false;
+        char prev = (char) -1;
+        for (char ch : password.toCharArray()) {
+            if (ch == prev) return false;
+            prev = ch;
+            if (ch >= '0' && ch <= '9') {
+                hasDigit = true;
+            } else if (spetial.indexOf(ch) >= 0) {
+                hasSpetial = true;
+            } else if (ch >= 'a' && ch <= 'z') {
+                hasLowerCase = true;
+            } else if (ch >= 'A' && ch <= 'Z') {
+                hasUpperCase = true;
+            }
+        }
+        return hasDigit && hasSpetial && hasLowerCase && hasUpperCase;
+    }
+
+    // BEATS 89%
+    public static boolean strongPasswordCheckerII1(String password) {
         if (password.length() < 8) return false;
         String spetial = "!@#$%^&*()-+";
         boolean hasDigit = false;
