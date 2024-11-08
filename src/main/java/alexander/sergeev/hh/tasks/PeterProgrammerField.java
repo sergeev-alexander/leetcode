@@ -50,8 +50,6 @@ public class PeterProgrammerField {
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
-        // 2 4 3 2 1 4 1
-        // 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
         int maxSquare = 0;
 
         long start = System.nanoTime();
