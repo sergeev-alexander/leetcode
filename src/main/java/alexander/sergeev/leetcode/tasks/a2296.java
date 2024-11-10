@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package alexander.sergeev.leetcode.tasks;
 
 // 2296. Design a Text Editor
 class a2296 {
