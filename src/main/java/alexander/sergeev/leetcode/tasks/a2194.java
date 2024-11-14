@@ -20,12 +20,40 @@ public class a2194 {
      */
 
     public static void main(String[] args) {
-        String s = "A1:F1";
+        String s = "K1:L2";
         System.out.println(cellsInRange(s));
     }
 
-    // BEATS 45%
+    // BEATS 100%
     public static List<String> cellsInRange(String s) {
+        List<String> list = new ArrayList<>();
+        StringBuilder sb = new StringBuilder("A");
+        for (int i = s.charAt(0); i <= s.charAt(3); i++) {
+            sb.deleteCharAt(0);
+            sb.append((char) i);
+            for (int j = s.charAt(1); j <= s.charAt(4); j++) {
+                sb.append((char) j);
+                list.add(sb.toString());
+                sb.deleteCharAt(1);
+            }
+        }
+        return list;
+    }
+
+    // BEATS 22%
+    public static List<String> cellsInRange2(String s) {
+        List<String> list = new ArrayList<>();
+        char[] arr = s.toCharArray();
+        for (int i = arr[0]; i <= arr[3]; i++) {
+            for (int j = arr[1]; j <= arr[4]; j++) {
+                list.add(String.valueOf((char) i) + (char) j);
+            }
+        }
+        return list;
+    }
+
+    // BEATS 45%
+    public static List<String> cellsInRange1(String s) {
         List<String> list = new ArrayList<>();
         for (int i = s.charAt(0); i <= s.charAt(3); i++) {
             for (int j = s.charAt(1); j <= s.charAt(4); j++) {
