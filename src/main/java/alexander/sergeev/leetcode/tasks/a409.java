@@ -22,7 +22,7 @@ public class a409 {
         }
         int result = 0;
         for (int i : arr) {
-            result = result + i / 2 * 2;
+            result += i / 2 * 2;
         }
         if (result < s.length()) {
             result++;
