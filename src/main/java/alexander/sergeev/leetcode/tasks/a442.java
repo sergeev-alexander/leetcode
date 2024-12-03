@@ -14,12 +14,24 @@ public class a442 {
      */
 
     public static void main(String[] args) {
-        int[] arr = {4,3,2,7,8,2,3,1};
+        int[] arr = {4, 3, 2, 7, 8, 2, 3, 1};
         System.out.println(findDuplicates(arr));
     }
 
     // BEATS 93%
     public static List<Integer> findDuplicates(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            int a = nums[i] < 0 ? nums[i] * -1 : nums[i];
+            if (nums[a - 1] < 0) {
+                list.add(a);
+            } else nums[a - 1] *= -1;
+        }
+        return list;
+    }
+
+    // BEATS 93%
+    public static List<Integer> findDuplicates1(int[] nums) {
         int[] arr = new int[100001];
         List<Integer> list = new ArrayList<>();
         for (int num : nums) {
