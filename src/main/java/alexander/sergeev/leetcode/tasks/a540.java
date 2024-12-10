@@ -1,5 +1,7 @@
 package alexander.sergeev.leetcode.tasks;
 
+import java.lang.management.MonitorInfo;
+
 // 540. Single Element in a Sorted Array
 public class a540 {
 
@@ -11,12 +13,24 @@ public class a540 {
      */
 
     public static void main(String[] args) {
-        int[] nums = {3,3,7,7,10,11,11};
+        int[] nums = {3, 3, 7, 7, 10, 11, 11};
         System.out.println(singleNonDuplicate(nums));
     }
 
-    // BEATS 26%
     public static int singleNonDuplicate(int[] nums) {
+        int leftIndex = 0;
+        int rightIndex = nums.length - 1;
+        while (leftIndex < rightIndex) {
+            int midIndex = (leftIndex + rightIndex) / 2;
+            int adjacentIndex = midIndex % 2 == 0 ? midIndex + 1 : midIndex - 1;
+            if (nums[midIndex] == nums[adjacentIndex]) leftIndex = midIndex + 1;
+            else rightIndex = midIndex;
+        }
+        return nums[leftIndex];
+    }
+
+    // BEATS 26%
+    public static int singleNonDuplicate1(int[] nums) {
         int num = nums[0];
         int count = 1;
         for (int i = 1; i < nums.length; i++) {
