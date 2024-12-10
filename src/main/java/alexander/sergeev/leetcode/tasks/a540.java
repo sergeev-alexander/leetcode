@@ -17,6 +17,7 @@ public class a540 {
         System.out.println(singleNonDuplicate(nums));
     }
 
+    // BEATS 100%
     public static int singleNonDuplicate(int[] nums) {
         int leftIndex = 0;
         int rightIndex = nums.length - 1;
