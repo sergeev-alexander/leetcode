@@ -1,6 +1,8 @@
 package alexander.sergeev.leetcode.tasks;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 // 506. Relative Ranks
 public class a506 {
@@ -23,8 +25,33 @@ public class a506 {
         System.out.println(Arrays.toString(findRelativeRanks(arr)));
     }
 
-    // BEATS 11%
+    // BEATS 91%
     public static String[] findRelativeRanks(int[] score) {
+        int n = score.length;
+        Map<Integer, String> map = new HashMap<>();
+        int[] arr = new int[n];
+        System.arraycopy(score, 0, arr, 0, n);
+        Arrays.sort(arr);
+        for (int i = n - 1; i >= 0; i--) {
+            if (i < n - 3) {
+                map.put(arr[i], String.valueOf(n - i));
+            } else if (i == n - 1) {
+                map.put(arr[i], "Gold Medal");
+            } else if (i == n - 2) {
+                map.put(arr[i], "Silver Medal");
+            } else {
+                map.put(arr[i], "Bronze Medal");
+            }
+        }
+        String[] strArr = new String[n];
+        for (int i = 0; i < n; i++) {
+            strArr[i] = map.get(score[i]);
+        }
+        return strArr;
+    }
+
+    // BEATS 11%
+    public static String[] findRelativeRanks1(int[] score) {
         int[] arr = Arrays.copyOf(score, score.length);
         Arrays.sort(arr);
         String[] result = new String[score.length];

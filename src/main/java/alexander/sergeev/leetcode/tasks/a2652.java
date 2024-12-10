@@ -1,7 +1,7 @@
 package alexander.sergeev.leetcode.tasks;
 
 // 2652. Sum Multiples
-public class a2652_DONT_FORGET_TO_COPY {
+public class a2652 {
 
     /*
     Given a positive integer n, find the sum of all integers in the range [1, n] inclusive that are divisible by 3, 5, or 7.
