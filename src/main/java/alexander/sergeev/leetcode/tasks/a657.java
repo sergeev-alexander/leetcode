@@ -19,7 +19,7 @@ public class a657 {
     }
 
     // BEATS 96%
-    public static boolean judgeCircle1(String moves) {
+    public static boolean judgeCircle(String moves) {
         int x = 0;
         int y = 0;
         for (char ch : moves.toCharArray()) {
