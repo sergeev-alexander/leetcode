@@ -21,8 +21,28 @@ public class a2788 {
         System.out.println(splitWordsBySeparator(words, sep));
     }
 
-    // BEATS 93%
+    // BEATS 98%
     public static List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> list = new ArrayList<>();
+        for (String word : words) {
+            int start = 0;
+            for (int i = 0; i < word.length(); i++) {
+                if (word.charAt(i) == separator) {
+                    if (i > start) {
+                        list.add(word.substring(start, i));
+                    }
+                    start = i + 1;
+                }
+            }
+            if (start < word.length()) {
+                list.add(word.substring(start));
+            }
+        }
+        return list;
+    }
+
+    // BEATS 93%
+    public static List<String> splitWordsBySeparator1(List<String> words, char separator) {
         List<String> list = new ArrayList<>();
         for (String word : words) {
             StringBuilder stringBuilder = new StringBuilder();
